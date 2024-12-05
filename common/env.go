@@ -1,0 +1,14 @@
+package common
+
+import (
+	_ "github.com/joho/godotenv/autoload"
+	"syscall"
+)
+
+func EnvString(key, fallback string) string {
+	if val, ok := syscall.Getenv(key); ok {
+		return val
+	}
+
+	return fallback
+}
